@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "AdSkip",
+  "version": "1.0",
+  "description": "Skip video ads on YouTube",
+  "action": {
+    "default_popup": "ext/index.html"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+      "run_at": "document_end"
+    }
+  ]
+}
